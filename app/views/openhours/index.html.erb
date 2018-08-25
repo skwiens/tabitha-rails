@@ -1,0 +1,26 @@
+<h1>Food Bank Nights</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Volunteers</th>
+    <th>Shoppers</th>
+    <th></th>
+  </tr>
+  <% @openhours.each do |openhour|  %>
+    <tr>
+      <td><%= openhour.date.strftime('%B %d, %Y') %></td>
+      <td>
+        <% openhour.oh_vols.each do |volunteer| %>
+          <span><%= volunteer.name %></span>
+        <% end %>
+      </td>
+      <td>
+        <% openhour.shop_vols.each do |shopper| %>
+          <span><%= shopper.name %></span>
+        <% end %>
+      </td>
+      <td>#TODO: If no notes, create an add notes button</td>
+    </tr>
+  <% end %>
+</table>

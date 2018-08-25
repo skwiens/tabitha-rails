@@ -1,0 +1,54 @@
+<h1><%= @openhour.date.strftime("%B %d, %Y") %> </h1>
+<hr>
+<div class="form">
+  <div class="menu-center">
+    <a class="btn btn-success" href="#">Edit</a>
+    <% if @openhour.posted %>
+      <a class="btn btn-danter" href="#">Re-Post</a>
+    <% else %>
+      <a class="btn btn-info" href="#">POST</a>
+    <% end %>
+    <a class="btn btn-info" href="#">Send Reminder Email</a>
+    <a class="btn btn-info" href="#">Send Shopping List</a>
+  </div>
+
+  <table class="table table-striped">
+    <tr>
+      <th>
+        Volunteers
+      </th>
+      <td>
+        <%= @openhour.oh_vols.map { |ohvol| link_to(ohvol.volunteer.name, volunteer_path(ohvol.volunteer.id)) }.join(', ').html_safe %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Shoppers
+      </th>
+      <td>
+        <%= @openhour.shop_vols.map { |shopvol| link_to(shopvol.volunteer.name, volunteer_path(shopvol.volunteer.id)) }.join(', ').html_safe %>
+      </td>
+    </tr>
+    <% if @openhour.notes %>
+      <tr>
+        <th>
+          Customers
+        </th>
+        <% if @openhour.notes[0].customers %>
+          <td><%= @openhour.notes[0].customers %></td>
+
+        <% end %>
+      </tr>
+      <tr>
+        <th>
+          Notes
+        </th>
+        <td><%= @openhour.notes[0].body.html_safe %></td>
+      </tr>
+      <tr>
+        <th>Shopping List</th>
+        <td><%= @openhour.notes[0].shopping.html_safe %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

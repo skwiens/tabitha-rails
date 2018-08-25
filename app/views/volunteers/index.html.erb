@@ -1,0 +1,24 @@
+<h1>Volunteers</h1>
+
+<section class="table container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th># Shifts Worked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @volunteers.each do |vol|  %>
+      <tr>
+        <td><%= vol.name %></td>
+        <td><%= vol.role %></td>
+        <td><%= vol.email %></td>
+        <td>Need to do</td>
+      </tr>
+      <% end  %>
+    </tbody>
+  </table>
+</section>

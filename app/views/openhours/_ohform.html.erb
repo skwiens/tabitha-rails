@@ -1,0 +1,24 @@
+
+<section>
+  <% if @openhour.errors.any? %>
+  <ul class = "errors">
+    <% @openhour.errors.each do |column, message| %>
+      <li>
+        <strong> <%= column.capitalize %> </strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</section>
+
+<section class = "form container">
+  <%= form_for @openhour do |f| %>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+</section>

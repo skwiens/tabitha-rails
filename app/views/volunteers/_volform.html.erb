@@ -1,0 +1,39 @@
+<section>
+  <% if @volunteer.errors.any? %>
+  <ul class = "errors">
+    <% @volunteer.errors.each do |column, message| %>
+      <li>
+        <strong> <%= column.capitalize %> </strong> <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>
+
+<section class = "form">
+  <%= form_for @volunteer do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+  <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+</section>

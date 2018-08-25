@@ -1,0 +1,13 @@
+<section class="container">
+  <h1><%= @volunteer.name %></h1>
+  <ul>
+    <li>Role: <%= @volunteer.role %></li>
+    <li>Email: <%= @volunteer.email %></li>
+    <li>Phone: <%= @volunteer.phone %></li>
+    <li>Notes: <%= @volunteer.notes %></li>
+    <li>Joined: <%= @volunteer.created_at.strftime("%B %d, %Y") %></li>
+    <li>Last Date Worked: TODO</li>
+    <li>Number of Shifts worked: @volunteer.openhours.count</li>
+    <li>Number of Shifts worked this year: </li>
+  </ul>
+</section>
